@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        linear-gradient(135deg,
+            #001233,
+            #003566,
+            #00509d);
+
+    min-height: 100vh;
+
+    color: white;
+
+    transition: 0.4s ease;
+}
+.admin-description{
+    color: rgba(255,255,255,0.85);
+    transition: 0.3s ease;
+}
+/* Light Theme */
+body.light-theme .admin-description{
+    color: #333;
+}
+/* Light Theme */
+body.light-theme {
+
+    background: #f5f7fa;
+    color: #111;
+}
+
+body.light-theme .custom-navbar {
+    background: #0d6efd;
+}
+
+body.light-theme .operation-card,
+body.light-theme .balance-card,
+body.light-theme .transaction-card {
+    background: white;
+    color: black;
+}
+
+/* Navbar */
+.custom-navbar {
+
+    background: rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    padding: 15px;
+}
+/* Common Toggle Button */
+.toggle-btn {
+
+    border: 1px solid white;
+
+    color: white;
+
+    background: transparent;
+
+}
+
+/* Hover */
+.toggle-btn:hover {
+
+    background-color: white;
+
+    color: #0d6efd;
+
+}
+
+/* Light Theme */
+.light-theme .toggle-btn {
+
+    border: 1px solid #0d6efd;
+
+    color: #0d6efd;
+
+}
+
+/* Light Theme Hover */
+.light-theme .toggle-btn:hover {
+
+    background-color: #0d6efd;
+
+    color: white;
+
+}
+/* Default */
+.light-logo{
+    display: none;
+}
+
+.dark-logo{
+    display: block;
+}
+
+/* Light Theme */
+body.light-theme .dark-logo{
+    display: none;
+}
+
+body.light-theme .light-logo{
+    display: block;
+}
+/* Welcome */
+.welcome-section {
+    animation: fadeIn 1s ease;
+}
+/* Dark Theme Welcome Card */
+.welcome-card{
+
+    background: #000000 !important;
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.65);
+
+    backdrop-filter: none;
+}
+
+/* Light Theme Welcome Card */
+body.light-theme .welcome-card{
+
+    background: #ffffff !important;
+
+    color: black !important;
+
+    border: 1px solid rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.12);
+}
+/* Balance Card */
+.balance-card {
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.45);
+
+    animation: fadeInUp 1s ease;
+}
+/* =========================
+   NEXORA BANK LOGO
+========================= */
+
+.bank-logo {
+
+    width: 45px;
+    height: 45px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    transition: 0.4s ease;
+
+    box-shadow:
+        0 0 15px rgba(0,0,0,0.3);
+}
+
+.light-theme .bank-logo {
+
+    box-shadow:
+        0 0 12px rgba(5, 0, 0, 0.4);
+}
+
+.brand-subtitle {
+
+    font-size: 12px;
+
+    opacity: 0.8;
+
+    letter-spacing: 0.5px;
+}
+/* Operation Cards */
+.operation-card {
+
+    background: rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    color: white;
+
+    transition: 0.4s ease;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.operation-card:hover {
+
+    transform: translateY(-8px) scale(1.03);
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.operation-icon {
+
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+
+    color: #4dabf7;
+}
+
+/* Transactions */
+.transaction-card {
+
+    background: rgba(8, 0, 0, 0.12);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    animation: fadeInUp 1s ease;
+}
+
+/* Footer */
+.footer {
+
+    background: rgba(0, 0, 0, 0.4);
+
+    padding: 15px;
+    
+    width: 100%;
+
+    margin-top: auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media(max-width:768px) {
+
+    .balance-card {
+        padding: 25px;
+    }
+
+    .operation-card {
+        padding: 25px;
+    }
+
+}
+/* =========================
+   CHANGE PIN PAGE
+========================= */
+
+.icon-bg {
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border: none;
+
+    color: white;
+}
+
+.eye-btn {
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    border: none;
+}
+
+.eye-btn:hover {
+
+    background:
+        rgba(255,255,255,0.2);
+
+    color: #4dabff;
+}
+
+.light-theme .icon-bg {
+
+    background:
+        rgba(0,0,0,0.05);
+
+    color: #111;
+}
+
+.light-theme .eye-btn {
+
+    background:
+        rgba(0,0,0,0.05);
+
+    color: #111;
+}
+
+.light-theme .eye-btn:hover {
+
+    background:
+        rgba(0,0,0,0.08);
+}
+
+.list-group-item {
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: inherit;
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+}
+
+.light-theme .list-group-item {
+
+    background:
+        rgba(255,255,255,0.7);
+}
+/* ========================================
+PROFILE FEATURE CARD
+======================================== */
+
+.profile-feature-card {
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 24px;
+
+    padding: 40px 30px;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.profile-feature-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* ICON */
+
+.profile-icon i {
+
+    font-size: 70px;
+
+    color: #4da3ff;
+}
+
+/* DESCRIPTION */
+
+.profile-feature-text {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    opacity: 0.9;
+}
+
+/* BUTTON */
+
+.profile-btn {
+
+    padding: 12px 28px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.profile-btn:hover {
+
+    transform: scale(1.05);
+}
+
+/* LIGHT THEME */
+
+.light-theme .profile-feature-card {
+
+    background: rgba(255,255,255,0.8);
+
+    color: #111;
+}
+
+.light-theme .profile-feature-text {
+
+    color: #333;
+}
+/* ========================================
+PROFILE DETAILS CARD
+======================================== */
+
+.profile-details {
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+.profile-details p {
+
+    margin-bottom: 0;
+
+    opacity: 0.9;
+}

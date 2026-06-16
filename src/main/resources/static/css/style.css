@@ -1,0 +1,493 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 18, 50, 0.92),
+            rgba(0, 18, 50, 0.95)
+        );
+
+    color: white;
+
+    overflow-x: hidden;
+
+    transition: 0.4s ease;
+}
+
+/* Light Theme */
+body.light-theme {
+
+    background: #f5f7fa;
+
+    color: #111;
+}
+
+/* Navbar */
+.custom-navbar {
+
+    background: rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .custom-navbar {
+
+    background: #0d6efd;
+}
+
+/* Hero Section */
+.hero-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 100px 20px;
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+/* Hero Text */
+.hero-title {
+
+    font-size: 3.5rem;
+
+    font-weight: 700;
+
+    animation: fadeInDown 1s ease;
+}
+
+.hero-text {
+
+    font-size: 1.1rem;
+
+    color: #d6d6d6;
+
+    line-height: 1.8;
+
+    animation: fadeInUp 1.2s ease;
+}
+
+body.light-theme .hero-text {
+
+    color: #444;
+}
+
+/* Login Container */
+.login-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 85vh;
+
+    padding: 20px;
+}
+
+/* Login Card */
+.login-card {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    color: white;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    transition: all 0.4s ease;
+
+    animation: fadeInUp 1s ease;
+}
+
+.login-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .login-card {
+
+    background: white;
+
+    color: black;
+}
+
+/* Icons */
+.icon-box {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 2rem;
+}
+
+.user-icon {
+
+    background: linear-gradient(135deg, #0d6efd, #4dabf7);
+}
+
+.admin-icon {
+
+    background: linear-gradient(135deg, #6610f2, #9d4edd);
+
+    font-size: 3rem;
+
+    color: #4dabf7;
+
+    margin-bottom: 10px;
+}
+
+.bank-icon {
+
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+
+    color: #4dabf7;
+}
+
+/* Bank Logo */
+.bank-logo {
+
+    width: 45px;
+
+    height: 45px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    transition: 0.4s ease;
+
+    box-shadow:
+        0 0 15px rgba(0,0,0,0.3);
+}
+
+.light-theme .bank-logo {
+
+    box-shadow:
+        0 0 12px rgba(5, 0, 0, 0.4);
+}
+
+.brand-subtitle {
+
+    font-size: 12px;
+
+    opacity: 0.8;
+
+    letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.form-control,
+.input-group-text {
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: none;
+
+    color: white;
+}
+
+.form-control::placeholder {
+
+    color: #dcdcdc;
+}
+
+.form-control:focus {
+
+    box-shadow: none;
+
+    border: 1px solid #4dabf7;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    color: white;
+}
+
+body.light-theme .form-control,
+body.light-theme .input-group-text {
+
+    background: #f1f3f5;
+
+    color: black;
+}
+
+/* Buttons */
+.custom-btn,
+.login-btn {
+
+    border-radius: 50px;
+
+    padding: 12px 25px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.custom-btn:hover,
+.login-btn:hover {
+
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+
+    background: rgba(0, 0, 0, 0.4);
+
+    padding: 15px;
+
+    color: #bfbfbf;
+
+    font-size: 0.95rem;
+
+    text-align: center;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .hero-title {
+
+        font-size: 2.3rem;
+    }
+
+    .hero-text {
+
+        font-size: 1rem;
+    }
+
+    .login-card {
+
+        margin-bottom: 20px;
+
+        padding: 30px 20px;
+    }
+}
+
+/* Hero Image Section */
+/* Hero Image Section */
+.hero-image-section {
+
+    width: 100%;
+
+    height: 80vh;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+/* Hero Image */
+.hero-img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* Theme Images */
+.light-hero,
+.light-logo {
+
+    display: none;
+}
+
+body.light-theme .light-hero,
+body.light-theme .light-logo {
+
+    display: block;
+}
+
+body.light-theme .dark-hero,
+body.light-theme .dark-logo {
+
+    display: none;
+}
+
+/* Content Section */
+.content-section {
+
+    padding: 70px 20px;
+}
+
+/* Update Hero Title */
+.hero-title {
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    animation: fadeInDown 1s ease;
+}
+
+/* Update Hero Text */
+.hero-text {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    font-size: 1.1rem;
+
+    color: #d6d6d6;
+
+    line-height: 1.8;
+
+    animation: fadeInUp 1.2s ease;
+}
+
+/* Theme Button */
+.theme-btn {
+
+    border: 1px solid white;
+
+    color: white;
+}
+
+.theme-btn:hover {
+
+    background: white;
+
+    color: #0d6efd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .hero-image-section {
+
+        height: 35vh;
+    }
+
+    .hero-title {
+
+        font-size: 2.2rem;
+    }
+
+    .hero-text {
+
+        font-size: 1rem;
+    }
+}
+/* Toggle PIN Button - Light Theme */
+body.light-theme #togglePin {
+
+    border: 1px solid #ced4da;
+
+    background: #f1f3f5;
+
+    color: #111;
+}
+
+/* Eye Icon */
+body.light-theme #togglePin i {
+
+    color: #111;
+}
+
+/* Hover */
+body.light-theme #togglePin:hover {
+
+    background: #0d6efd;
+
+    color: white;
+}
+
+body.light-theme #togglePin:hover i {
+
+    color: white;
+}

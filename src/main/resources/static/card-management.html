@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Card Management</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="css/dashboard.css">
+
+</head>
+
+<body id="body">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+
+        <div class="container-fluid px-4">
+
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center"
+                href="#">
+
+                <img src="images/nexora-dark.png"
+                    class="bank-logo me-3 dark-logo">
+
+                <img src="images/nexora-light.png"
+                    class="bank-logo me-3 light-logo">
+
+                <div>
+
+                    <h5 class="mb-0 fw-bold">
+
+                        NEXORA BANK
+
+                    </h5>
+
+                    <small class="brand-subtitle">
+
+                        Secure Digital Banking
+
+                    </small>
+
+                </div>
+
+            </a>
+
+            <!-- Right -->
+            <div class="d-flex align-items-center gap-3">
+
+                <span class="welcome-text">
+
+                    Card Management
+
+                </span>
+
+                <!-- Theme -->
+                <button class="btn btn-outline-light"
+                    id="themeToggle">
+
+                    <i class="bi bi-moon-fill"
+                        id="themeIcon"></i>
+
+                </button>
+                
+
+                <!-- Logout -->
+                <button class="btn btn-danger"
+                    id="logoutBtn">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Main -->
+    <div class="container py-5">
+
+        <!-- Header -->
+        <div class="balance-card text-center mb-4">
+
+            <h2>
+
+                Card Management
+
+            </h2>
+
+            <p>
+
+                Manage ATM/Debit cards securely
+                for bank customers.
+
+            </p>
+
+        </div>
+
+        <!-- Statistics -->
+        <div class="row g-4 mb-4">
+
+            <div class="col-md-3">
+
+                <div class="operation-card text-center">
+
+                    <i class="bi bi-credit-card-2-front-fill operation-icon"></i>
+
+                    <h3 id="totalCards">
+
+                        0
+
+                    </h3>
+
+                    <p>Total Cards</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="operation-card text-center">
+
+                    <i class="bi bi-check-circle-fill operation-icon"></i>
+
+                    <h3 id="activeCards">
+
+                        0
+
+                    </h3>
+
+                    <p>Active Cards</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="operation-card text-center">
+
+                    <i class="bi bi-x-circle-fill operation-icon"></i>
+
+                    <h3 id="blockedCards">
+
+                        0
+
+                    </h3>
+
+                    <p>Blocked Cards</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="operation-card text-center">
+
+                    <i class="bi bi-pause-circle-fill operation-icon"></i>
+
+                    <h3 id="frozenCards">
+
+                        0
+
+                    </h3>
+
+                    <p>Frozen Cards</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Search -->
+        <div class="balance-card mb-4">
+
+            <div class="row g-3">
+
+                <div class="col-md-9">
+
+                    <input type="text"
+                        id="searchInput"
+                        class="form-control"
+                        placeholder="Search by Account Number, Card Number or User Name">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <button class="btn btn-primary w-100"
+                        data-bs-toggle="modal"
+                        data-bs-target="#issueCardModal">
+
+                        <i class="bi bi-plus-circle-fill me-2"></i>
+
+                        Issue New Card
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Cards Table -->
+        <div class="balance-card mb-4">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Card Number</th>
+
+                            <th>Account Number</th>
+
+                            <th>Card Type</th>
+
+                            <th>Expiry</th>
+
+                            <th>Status</th>
+
+                            <th>Issue Date</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="cardTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Accounts Without Cards -->
+        <div class="balance-card mb-4">
+
+            <h4 class="mb-3">
+
+                Accounts Without Cards
+
+            </h4>
+
+            <div id="accountsWithoutCards">
+
+            </div>
+
+        </div>
+
+        <!-- Back -->
+        <div class="text-center">
+
+            <a href="admin-dashboard.html"
+                class="btn btn-outline-primary px-5">
+
+                Back To Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Issue Card Modal -->
+    <div class="modal fade"
+        id="issueCardModal">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content bg-dark text-white">
+
+                <div class="modal-header border-0">
+
+                    <h5 class="modal-title">
+
+                        Issue ATM Card
+
+                    </h5>
+
+                    <button class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div id="issueAlert"
+                        class="alert d-none">
+                    </div>
+
+                    <!-- Account -->
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Account Number
+
+                        </label>
+
+                        <input type="text"
+                            id="accountNumber"
+                            class="form-control">
+
+                    </div>
+
+                    <!-- Card Type -->
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Card Type
+
+                        </label>
+
+                        <select id="cardType"
+                            class="form-select">
+
+                            <option value="DEBIT CARD">
+
+                                DEBIT CARD
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer border-0">
+
+                    <button class="btn btn-primary w-100"
+                        id="issueCardBtn">
+
+                        Issue Card
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- View Modal -->
+    <div class="modal fade"
+        id="viewCardModal">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content bg-dark text-white">
+
+                <div class="modal-header border-0">
+
+                    <h5 class="modal-title">
+
+                        Card Details
+
+                    </h5>
+
+                    <button class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body"
+                    id="viewCardBody">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+
+        © 2026 ATM Management System |
+        Admin Portal
+
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/card-management.js"></script>
+
+</body>
+
+</html>

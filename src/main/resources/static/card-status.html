@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Card Status</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="css/dashboard.css">
+
+</head>
+
+<body id="body">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+
+        <div class="container-fluid px-4">
+
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center"
+                href="#">
+
+                <!-- Dark Logo -->
+                <img src="images/nexora-dark.png"
+                    id="darkLogo"
+                    class="bank-logo me-3 dark-logo">
+
+                <!-- Light Logo -->
+                <img src="images/nexora-light.png"
+                    id="lightLogo"
+                    class="bank-logo me-3 light-logo">
+
+                <div>
+
+                    <h5 class="mb-0 fw-bold">
+
+                        NEXORA BANK
+
+                    </h5>
+
+                    <small class="brand-subtitle">
+
+                        Secure Digital Banking
+
+                    </small>
+
+                </div>
+
+            </a>
+
+            <!-- Right -->
+            <div class="d-flex align-items-center gap-3">
+
+                <span class="welcome-text">
+
+                    Card Status
+
+                </span>
+
+                <!-- Theme -->
+                <button class="btn btn-outline-light"
+                    id="themeToggle">
+
+                    <i class="bi bi-moon-fill"
+                        id="themeIcon"></i>
+
+                </button>
+
+                <!-- Profile -->
+<a href="profile.html"
+    class="btn btn-outline-light">
+
+    <i class="bi bi-person-circle"></i>
+
+</a>
+
+                <!-- Logout -->
+                <button class="btn btn-danger"
+                    id="logoutBtn">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Main -->
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <!-- Header -->
+                <div class="balance-card mb-4 text-center">
+
+                    <h2>
+
+                        Card Status
+
+                    </h2>
+
+                    <p>
+
+                        View your ATM/Debit card
+                        information securely.
+
+                    </p>
+
+                </div>
+
+                <!-- Card Exists -->
+                <div id="cardContainer"
+                    class="d-none">
+
+                    <!-- Card Details -->
+                    <div class="balance-card mb-4">
+
+                        <h4 class="mb-4">
+
+                            Debit Card Information
+
+                        </h4>
+
+                        <div class="row g-4">
+
+                            <!-- Card Number -->
+                            <div class="col-md-6">
+
+                                <div class="p-3 rounded glass-box">
+
+                                    <small>
+
+                                        Card Number
+
+                                    </small>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+
+                                        <h5 id="cardNumber"
+                                            class="mb-0">
+                                        </h5>
+
+                                        <button class="btn toggle-btn"
+                                            id="viewCardBtn">
+
+                                            <i class="bi bi-eye-fill"></i>
+
+                                        </button>
+
+                                    </div>
+
+                                    <!-- CVV -->
+                                    <div class="mt-3">
+
+                                        <small>
+
+                                            CVV
+
+                                        </small>
+
+                                        <h6 id="cvvText">
+
+                                            ***
+
+                                        </h6>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Card Type -->
+                            <div class="col-md-6">
+
+                                <div class="p-3 rounded glass-box">
+
+                                    <small>
+
+                                        Card Type
+
+                                    </small>
+
+                                    <h5 id="cardType"></h5>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Expiry -->
+                            <div class="col-md-6">
+
+                                <div class="p-3 rounded glass-box">
+
+                                    <small>
+
+                                        Issue Date
+
+                                    </small>
+
+                                    <h5 id="issueDate"></h5>
+
+                                </div>
+
+                            </div>
+
+                            
+                            
+                            <div class="col-md-6">
+
+                                <div class="p-3 rounded glass-box">
+
+                                    <small>
+
+                                        Expiry Date
+
+                                    </small>
+
+                                    <h6 id="expiryDate"></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- Status -->
+                            <div class="col-md-6">
+
+                                <div class="p-3 rounded glass-box">
+
+                                    <small>
+
+                                        Card Status
+
+                                    </small>
+
+                                    <br>
+
+                                    <span id="statusBadge"
+                                        class="badge">
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-3 mt-4">
+
+                            <button class="btn btn-warning w-100"
+                                id="freezeBtn">
+
+                                Freeze Card
+
+                            </button>
+
+                            <button class="btn btn-success w-100"
+                                id="activateBtn">
+
+                                Activate Card
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Security Notes -->
+                    <div class="balance-card">
+
+                        <h4 class="mb-3">
+
+                            Security Notes
+
+                        </h4>
+
+                        <ul class="list-group">
+
+                            <li class="list-group-item">
+
+                                Never share your ATM card details.
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                Contact bank immediately if card is lost.
+
+                            </li>
+
+                            <li class="list-group-item">
+
+                                Use secure ATMs only.
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- No Card -->
+                <div id="noCardContainer"
+                    class="d-none">
+
+                    <div class="balance-card text-center">
+
+                        <h3>
+
+                            No Card Issued
+
+                        </h3>
+
+                        <p class="mt-3">
+
+                            This account currently
+                            does not have an ATM card.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Back -->
+                <div class="text-center mt-4">
+
+                    <a href="dashboard.html"
+                        class="btn btn-outline-primary px-5">
+
+                        Back To Dashboard
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Verification Modal -->
+    <div class="modal fade"
+        id="verifyModal"
+        tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content bg-dark text-white">
+
+                <div class="modal-header border-0">
+
+                    <h5 class="modal-title">
+
+                        Secure Verification
+
+                    </h5>
+
+                    <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <p>
+
+                        Enter your ATM PIN to view
+                        full card details securely.
+
+                    </p>
+
+                    <!-- Alert -->
+                    <div id="verifyAlert"
+                        class="alert d-none">
+                    </div>
+
+                    <!-- PIN -->
+                    <div class="input-group mt-3">
+
+                        <input type="password"
+                            id="verifyPin"
+                            class="form-control"
+                            placeholder="Enter ATM PIN">
+
+                        <button class="btn toggle-btn"
+                            type="button"
+                            id="toggleVerifyPin">
+
+                            <i class="bi bi-eye-fill"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer border-0">
+
+                    <button class="btn btn-primary w-100"
+                        id="verifyBtn">
+
+                        Verify PIN
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+
+        © 2026 ATM Management System |
+        Secure Banking Portal
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/card-status.js"></script>
+
+</body>
+
+</html>
